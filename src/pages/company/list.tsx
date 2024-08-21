@@ -59,7 +59,6 @@ export const CompanyList = ({ children }: React.PropsWithChildren) => {
         headerButtons={() => (
           <CreateButton
             onClick={() => {
-              console.log('Create');
               go({
                 to: {
                   resource: 'companies',

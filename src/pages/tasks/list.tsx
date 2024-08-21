@@ -2,7 +2,7 @@ import {
   KanbanBoardContainer,
   KanbanBoard,
 } from '@/components/tasks/kanban/board';
-import ProjectCard from '@/components/tasks/kanban/card';
+import ProjectCard, { ProjectCardMemo } from '@/components/tasks/kanban/card';
 import KanbanColumn from '@/components/tasks/kanban/column';
 import KanbanItem from '@/components/tasks/kanban/item';
 import { TASK_STAGES_QUERY, TASKS_QUERY } from '@/graphql/queries';
@@ -43,7 +43,7 @@ const List = () => {
       gqlQuery: TASKS_QUERY,
     },
   });
-  console.log(tasks);
+  // console.log(tasks);
 
   const taskStages = React.useMemo(() => {
     if (!tasks?.data || !stages?.data) {
@@ -86,7 +86,10 @@ const List = () => {
                 id={task.id}
                 data={{ ...task, stageId: 'unnasigned' }}
               >
-                <ProjectCard {...task} dueDate={task.dueDate || undefined} />
+                <ProjectCardMemo
+                  {...task}
+                  dueDate={task.dueDate || undefined}
+                />
               </KanbanItem>
             ))}
           </KanbanColumn>
