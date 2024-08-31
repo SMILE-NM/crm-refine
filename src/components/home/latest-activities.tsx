@@ -38,7 +38,7 @@ const LatestActivities = () => {
       gqlQuery: DASHBOARD_LATEST_ACTIVITIES_DEALS_QUERY,
     },
   });
-  console.log(deals);
+  // console.log(deals);
   if (isError) {
     console.error('Error fetching latest activities:', error);
     return null;
